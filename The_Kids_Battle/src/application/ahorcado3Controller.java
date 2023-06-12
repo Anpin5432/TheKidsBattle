@@ -1,0 +1,104 @@
+package application;
+
+import java.io.IOException;
+
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+public class ahorcado3Controller {
+
+    /*private static final String[] PALABRAS = {"BOGOTA"};, "PYTHON", "HTML", "CSS", "JAVASCRIPT"};*/
+    private String palabraSeleccionada3;
+    private int intentosRestantes3;
+    private StringBuilder palabraActual3;
+
+    @FXML
+    private Label palabraLabel3;
+
+    @FXML
+    private Label intentosLabel3;
+
+    @FXML
+    private TextField letraTextField3;
+
+    public void initialize() {
+        palabraSeleccionada3 = ("ASIA");
+        intentosRestantes3 = 7;
+        palabraActual3 = new StringBuilder();
+
+        for (int i = 0; i < palabraSeleccionada3.length(); i++) {
+            palabraActual3.append("_");
+        }
+
+        actualizarVista();
+    }
+
+    @FXML
+    private void adivinarButtonAction(ActionEvent event) throws IOException {
+        String letra3 = letraTextField3.getText().toUpperCase();
+        letraTextField3.clear();
+        if (letra3.length() == 1) {
+            actualizarPalabra(letra3.charAt(0));
+            actualizarVista();
+            if (intentosRestantes3 == 0 || palabraActual3.indexOf("_") == -1) {
+                mostrarResultado();
+            }
+        }
+    }
+
+   /* private String seleccionarPalabra() {
+        int indice = (int) (Math.random() * PALABRAS.length);
+        return PALABRAS[indice];
+    }*/
+
+    private void actualizarPalabra(char letra) {
+        boolean letraAdivinada3 = false;
+        for (int i = 0; i < palabraSeleccionada3.length(); i++) {
+            if (palabraSeleccionada3.charAt(i) == letra) {
+                palabraActual3.setCharAt(i, letra);
+                letraAdivinada3 = true;
+            }
+        }
+        if (!letraAdivinada3) {
+            intentosRestantes3--;
+        }
+    }
+
+    private void actualizarVista() {
+        palabraLabel3.setText(palabraActual3.toString());
+        intentosLabel3.setText("Intentos restantes: " + intentosRestantes3);
+    }
+
+    private void mostrarResultado() throws IOException {
+    	Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Resultado");
+        if (intentosRestantes3 == 0) {
+        	
+            alert.setHeaderText("Perdiste");
+            alert.setContentText("La palabra era: " + palabraSeleccionada3);
+            
+        } else {
+            alert.setHeaderText("Ganaste");
+            alert.setContentText("¡Felicidades, adivinaste la palabra!");
+            //tercerahorcado();
+        }
+        alert.showAndWait();
+        /*System.exit(0);*/
+    }
+    
+    private void tercerahorcado() throws IOException {
+    	        Stage secondStage = new Stage(); 
+    	        Parent root = FXMLLoader.load(getClass().getResource("ahorcado3.fxml"));
+    	        secondStage.setTitle("Juego de Ahorcado3");
+    	        secondStage.setScene(new Scene(root));
+    	        secondStage.show();
+    	    
+    }
+}
