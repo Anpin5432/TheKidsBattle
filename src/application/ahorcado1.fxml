@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url('file:///C:/Users/User/Desktop/Eclipse/The_Kids_Battle/src/application/aede0ffd-698c-4910-9759-19231cdf864f.jpg');" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ahorcadoController">
+   <children>
+      <HBox layoutX="199.0" layoutY="225.0" prefHeight="40.0" prefWidth="200.0">
+         <children>
+            <Label text="Palabra">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin></Label>
+            <Label fx:id="palabraLabel">
+               <HBox.margin>
+                  <Insets left="10.0" />
+               </HBox.margin></Label>
+         </children>
+      </HBox>
+      <HBox layoutX="169.0" layoutY="278.0" prefHeight="40.0" prefWidth="262.0">
+         <children>
+            <Label text="Ingrese Letra">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <TextField fx:id="letraTextField" />
+         </children>
+      </HBox>
+      <Button layoutX="474.0" layoutY="265.0" mnemonicParsing="false" onAction="#adivinarButtonAction" text="Adivinar" />
+      <HBox layoutX="200.0" layoutY="325.0" prefHeight="49.0" prefWidth="200.0">
+         <children>
+            <Label fx:id="intentosLabel" prefHeight="17.0" prefWidth="140.0" />
+         </children>
+      </HBox>
+      <Label fx:id="pregunta" layoutX="107.0" layoutY="139.0">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="103.0" fitWidth="262.0" layoutX="169.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../Proyecto%20PP/titulo.png" />
+         </image>
+      </ImageView>
+   </children>
+</AnchorPane>
