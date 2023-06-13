@@ -90,17 +90,18 @@ public class ahorcado3Controller {
     }
 
     private void mostrarResultado() throws IOException {
-    	Alert alert = new Alert(Alert.AlertType.INFORMATION);
-        alert.setTitle("Resultado");
+    	
         if (intentosRestantes3 == 0) {
-        	
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Resultado");
             alert.setHeaderText("Perdiste");
             alert.setContentText("La palabra era: " + palabraSeleccionada3);
+	    alert.showAndWait();
             
         } else {
             regreso();
         }
-        alert.showAndWait();
+        
         /*System.exit(0);*/
     }
    
