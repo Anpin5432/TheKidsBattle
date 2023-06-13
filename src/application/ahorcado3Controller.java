@@ -98,20 +98,17 @@ public class ahorcado3Controller {
             alert.setContentText("La palabra era: " + palabraSeleccionada3);
             
         } else {
-            alert.setHeaderText("Ganaste");
-            alert.setContentText("¡Felicidades, adivinaste la palabra!");
-            //rompecabezas();
+            regreso();
         }
         alert.showAndWait();
         /*System.exit(0);*/
     }
-    
-    /*Aqui se cargara el codigo del rompecabezas
-      private void rompecabezas() throws IOException {
+   
+      private void regreso() throws IOException {
      
     	        Stage secondStage = new Stage(); 
-    	        Parent root = FXMLLoader.load(getClass().getResource("rompecabezas.fxml"));
-    	        secondStage.setTitle("Juego de Ahorcado3");
+    	        Parent root = FXMLLoader.load(getClass().getResource("menu.fxml"));
+    	        secondStage.setTitle("Menu");
     	        secondStage.setScene(new Scene(root));
     	        secondStage.show();
     	    
